@@ -185,30 +185,30 @@ const CheckMedicine = () => {
 
         {selectedMedicine ? (
           <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-center text-blue-300">
+            <h2 className="text-3xl font-bold text-center text-orange-400">
               {selectedMedicine.name}
             </h2>
 
-            <p className="text-lg font-semibold">
-              Price: ${selectedMedicine.price.toFixed(2)}
+            <p className="text-lg text-red-500 font-semibold">
+              Price: ₹{selectedMedicine.price.toFixed(2)}
             </p>
 
             <div>
-              <h3 className="text-xl font-semibold mb-2 text-blue-600">
+              <h3 className="text-xl font-semibold mb-2 text-orange-300">
                 Description
               </h3>
               <p className="text-white">{selectedMedicine.description}</p>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-2 text-blue-600">
+              <h3 className="text-xl font-semibold mb-2 text-orange-300">
                 Dosage
               </h3>
               <p className="text-white">{selectedMedicine.dosage}</p>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-2 text-blue-600">
+              <h3 className="text-xl font-semibold mb-2 text-orange-300">
                 Details
               </h3>
               <ul className="list-disc list-inside space-y-2 text-white">
@@ -222,7 +222,7 @@ const CheckMedicine = () => {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-2 text-blue-500">
+              <h4 className="text-lg font-semibold mb-2 text-orange-300">
                 Side Effects
               </h4>
               <ul className="list-disc list-inside space-y-1 text-white">
@@ -233,7 +233,7 @@ const CheckMedicine = () => {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-2 text-blue-500">
+              <h4 className="text-lg font-semibold mb-2 text-orange-300">
                 Precautions
               </h4>
               <ul className="list-disc list-inside space-y-1 text-white">
@@ -246,7 +246,7 @@ const CheckMedicine = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-2 text-blue-600">
+              <h3 className="text-xl font-semibold mb-2 text-orange-300">
                 Summary
               </h3>
               <p className="text-white">{selectedMedicine.summary}</p>

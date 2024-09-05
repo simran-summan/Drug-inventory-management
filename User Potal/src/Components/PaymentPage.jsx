@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const PaymentPage = () => {
   const location = useLocation();
@@ -13,19 +12,22 @@ const PaymentPage = () => {
     Ibuprofen: 5.29,
     Benadryl: 7.99,
     Claritin: 8.49,
+    aspirin: 4.99,
+    tylenol: 6.49,
+    ibuprofen: 5.29,
+    benadryl: 7.99,
+    claritin: 8.49
   };
 
-  const paynowheandler = async () => {
-    // setTimeout(() => {
-    //   alert("Payment Successfull");
-    //   navigate("/Purchase-Medicine");
-    // }, 2000);
+  const paynowhandler = async () => {
+    setTimeout(() => {
+      alert("Payment Successfull");
+      navigate("/Purchase-Medicine");
+    }, 2000);
 
-    const response = await axios.get(
-      "https://pharma-scout.vercel.app/search/aspirin"
-    );
-    console.log(response);
+
   };
+
   return (
     <>
       <div className="h-screen w-full bg-zinc-800 text-white">
@@ -35,7 +37,7 @@ const PaymentPage = () => {
             <div className="flex flex-col  w-96 mt-4">
               <label className="text-lg">Medicine Name</label>
               <input
-                type="email"
+                type="text"
                 value={medicineName}
                 className="p-2 rounded-lg mt-2 text-black"
               />
@@ -66,7 +68,7 @@ const PaymentPage = () => {
             </div>
 
             <button
-              onClick={paynowheandler}
+              onClick={paynowhandler}
               className="bg-blue-500 p-2 rounded-lg mt-4 justify-center"
             >
               Pay Now

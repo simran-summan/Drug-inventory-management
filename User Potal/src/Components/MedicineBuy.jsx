@@ -24,7 +24,7 @@ const MedicineBuy = () => {
           <div className="flex flex-col  w-96 mt-4">
             <label className="text-lg">Medicine Name</label>
             <input
-              type="email"
+              type="text"
               onChange={(e) => {
                 setMedicineName(e.target.value);
               }}
