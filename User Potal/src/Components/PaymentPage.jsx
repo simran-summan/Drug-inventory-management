@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const PaymentPage = () => {
   const location = useLocation();
@@ -14,11 +15,16 @@ const PaymentPage = () => {
     Claritin: 8.49,
   };
 
-  const paynowheandler = () => {
-    setTimeout(() => {
-      alert("Payment Successfull");
-      navigate("/Purchase-Medicine");
-    }, 2000);
+  const paynowheandler = async () => {
+    // setTimeout(() => {
+    //   alert("Payment Successfull");
+    //   navigate("/Purchase-Medicine");
+    // }, 2000);
+
+    const response = await axios.get(
+      "https://pharma-scout.vercel.app/search/aspirin"
+    );
+    console.log(response);
   };
   return (
     <>
