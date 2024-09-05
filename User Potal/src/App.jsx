@@ -1,4 +1,4 @@
-import { useState } from "react";
+import  React ,{ useState } from "react";
 import {
   Route,
   RouterProvider,
@@ -14,7 +14,7 @@ import CheckMedicine from "./Components/CheckMedicine";
 import PaymentPage from "./Components/PaymentPage";
 
 function App() {
-  const [count, setCount] = useState(0);
+
 
   const router = createBrowserRouter(
     createRoutesFromElements(
