@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate(); // React Router's navigation hook
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(email, password);
+
     // Simulate login
-    if (email === 'sim@gmail.com' && password === '1234') {
-      navigate('/user-portal/user-home'); // Redirect to Home Page after successful login
+    if (email === "user@email.com" && password === "user") {
+      navigate("/user-portal/user-home");
+    } else if (email === "admin@email.com" && password === "admin") {
+      navigate("/admin-portal/admin-home");
+    } else if (email === "superadmin@email.com" && password === "superadmin") {
+      navigate("/superadmin-portal/superadmin-home");
     } else {
-      alert('Invalid login credentials');
+      alert("Invalid login credentials");
     }
   };
 
@@ -22,7 +28,9 @@ const Login = () => {
         <h2 className="text-3xl font-bold text-center text-gray-700">Login</h2>
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
-            <label className="block mb-2 text-sm font-semibold text-gray-600">Email</label>
+            <label className="block mb-2 text-sm font-semibold text-gray-600">
+              Email
+            </label>
             <input
               type="email"
               className="w-full px-4 py-3 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
@@ -33,7 +41,9 @@ const Login = () => {
             />
           </div>
           <div>
-            <label className="block mb-2 text-sm font-semibold text-gray-600">Password</label>
+            <label className="block mb-2 text-sm font-semibold text-gray-600">
+              Password
+            </label>
             <input
               type="password"
               className="w-full px-4 py-3 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
@@ -52,10 +62,10 @@ const Login = () => {
         </form>
         <div className="text-center">
           <p className="text-sm text-gray-600">
-            Don't have an account? 
+            Don't have an account?
             <button
               className="ml-2 text-blue-600 hover:underline"
-              onClick={() => navigate('/signup')}
+              onClick={() => navigate("/signup")}
             >
               Sign Up
             </button>
