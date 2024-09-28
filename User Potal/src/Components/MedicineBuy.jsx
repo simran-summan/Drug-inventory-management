@@ -7,11 +7,11 @@ const MedicineBuy = () => {
   const [quantity, setQuantity] = useState(0);
   const navigate = useNavigate();
 
-  const buyMedicineHandler = () => {
+  const buyMedicineHandler = async () => {
     const response = { status: 200 };
 
     if (response.status === 200) {
-      navigate("/user-portal/payment", { state: { medicineName, quantity } });
+      navigate("/payment", { state: { medicineName, quantity } });
     } else {
       alert("Medicine Buying Failed");
     }

@@ -4,56 +4,56 @@ import React, { useState } from "react";
 const initialOrders = [
   {
     id: 1,
-    consumer: "John Doe",
+    hospital: "City Care Hospital",
     time: "2024-09-27 10:30",
     medicine: "Aspirin",
     quantity: 2,
   },
   {
     id: 2,
-    consumer: "Jane Smith",
+    hospital: "Green Valley Clinic",
     time: "2024-09-27 11:45",
     medicine: "Ibuprofen",
     quantity: 1,
   },
   {
     id: 3,
-    consumer: "Bob Johnson",
+    hospital: "Sunrise Medical Center",
     time: "2024-09-27 14:15",
     medicine: "Amoxicillin",
     quantity: 3,
   },
   {
     id: 4,
-    consumer: "Alice Brown",
+    hospital: "Riverside Health Clinic",
     time: "2024-09-27 15:20",
     medicine: "Paracetamol",
     quantity: 2,
   },
   {
     id: 5,
-    consumer: "Charlie Davis",
+    hospital: "Meadowbrook Hospital",
     time: "2024-09-27 16:00",
     medicine: "Metformin",
     quantity: 1,
   },
   {
     id: 6,
-    consumer: "Eva Wilson",
+    hospital: "Hillcrest General Hospital",
     time: "2024-09-27 17:30",
     medicine: "Lisinopril",
     quantity: 1,
   },
   {
     id: 7,
-    consumer: "Frank Miller",
+    hospital: "Maplewood Hospital",
     time: "2024-09-28 09:15",
     medicine: "Simvastatin",
     quantity: 2,
   },
   {
     id: 8,
-    consumer: "Grace Lee",
+    hospital: "Parkland Health Center",
     time: "2024-09-28 10:45",
     medicine: "Omeprazole",
     quantity: 1,
@@ -85,7 +85,7 @@ const OrderList = ({ orders, onSelectOrder }) => {
       <table className="min-w-full bg-white">
         <thead>
           <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-            <th className="py-3 px-6 text-center">Consumer</th>
+            <th className="py-3 px-6 text-center">Hospital</th>
             <th className="py-3 px-6 text-center">Time</th>
             <th className="py-3 px-6 text-center">Medicine</th>
             <th className="py-3 px-6 text-center">Quantity</th>
@@ -102,7 +102,7 @@ const OrderList = ({ orders, onSelectOrder }) => {
                 className="border-b border-gray-200 hover:bg-gray-100"
               >
                 <td className="py-3 px-6 text-center whitespace-nowrap">
-                  {order.consumer}
+                  {order.hospital}
                 </td>
                 <td className="py-3 px-6 text-center">{order.time}</td>
                 <td className="py-3 px-6 text-center">{order.medicine}</td>
@@ -139,7 +139,7 @@ const OrderDetails = ({ order, onAccept, onReject, onBack }) => {
       <div className="px-6 py-4">
         <h2 className="text-2xl font-bold mb-4">Order Details</h2>
         <p className="mb-2">
-          <strong>Consumer:</strong> {order.consumer}
+          <strong>Hospital:</strong> {order.hospital}
         </p>
         <p className="mb-2">
           <strong>Time:</strong> {order.time}
