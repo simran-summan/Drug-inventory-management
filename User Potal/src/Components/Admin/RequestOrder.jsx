@@ -55,8 +55,8 @@ const RequestOrderPage = () => {
     : 0;
 
   const renderMedicineInput = () => (
-    <form onSubmit={handleMedicineSubmit} className="space-y-4">
-      <h2 className="text-2xl font-bold underline">Request Medicine</h2>
+    <form onSubmit={handleMedicineSubmit} className="space-y-4 max-w-md mx-auto mt-10 bg-white shadow-md rounded-lg overflow-hidden p-6 ">
+      <h2 className="text-2xl underline font-bold">Request Medicine</h2>
       <div>
         <label className="block mb-1">Medicine Name:</label>
         <input

@@ -42,7 +42,7 @@ const SOS = () => {
 
   const renderForm = () => (
     <div className="max-w-md mx-auto mt-8 bg-white shadow-md rounded-lg overflow-hidden p-6">
-      <h2 className="text-2xl font-bold mb-4">SOS Request</h2>
+      <h2 className="text-2xl underline font-bold mb-4">SOS Request</h2>
       <div className="mb-4">
         <label className="block text-gray-700 mb-2">Emergency Level:</label>
         <select
