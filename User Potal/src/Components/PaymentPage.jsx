@@ -22,7 +22,7 @@ const PaymentPage = () => {
   const paynowhandler = async () => {
     setTimeout(() => {
       alert("Payment Successfull");
-      navigate("/Purchase-Medicine");
+      navigate("/user-portal/Purchase-Medicine");
     }, 2000);
 
 
