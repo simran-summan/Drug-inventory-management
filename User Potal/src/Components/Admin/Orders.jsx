@@ -85,12 +85,12 @@ const OrderList = ({ orders, onSelectOrder }) => {
       <table className="min-w-full bg-white">
         <thead>
           <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-            <th className="py-3 px-6 text-left">Consumer</th>
-            <th className="py-3 px-6 text-left">Time</th>
-            <th className="py-3 px-6 text-left">Medicine</th>
-            <th className="py-3 px-6 text-left">Quantity</th>
-            <th className="py-3 px-6 text-left">Stock Status</th>
-            <th className="py-3 px-6 text-left">Action</th>
+            <th className="py-3 px-6 text-center">Consumer</th>
+            <th className="py-3 px-6 text-center">Time</th>
+            <th className="py-3 px-6 text-center">Medicine</th>
+            <th className="py-3 px-6 text-center">Quantity</th>
+            <th className="py-3 px-6 text-center">Stock Status</th>
+            <th className="py-3 px-11 text-left">Action</th>
           </tr>
         </thead>
         <tbody className="text-gray-600 text-sm font-light">
@@ -101,14 +101,14 @@ const OrderList = ({ orders, onSelectOrder }) => {
                 key={order.id}
                 className="border-b border-gray-200 hover:bg-gray-100"
               >
-                <td className="py-3 px-6 text-left whitespace-nowrap">
+                <td className="py-3 px-6 text-center whitespace-nowrap">
                   {order.consumer}
                 </td>
-                <td className="py-3 px-6 text-left">{order.time}</td>
-                <td className="py-3 px-6 text-left">{order.medicine}</td>
-                <td className="py-3 px-6 text-left">{order.quantity}</td>
+                <td className="py-3 px-6 text-center">{order.time}</td>
+                <td className="py-3 px-6 text-center">{order.medicine}</td>
+                <td className="py-3 px-6 text-center">{order.quantity}</td>
                 <td
-                  className={`py-3 px-6 text-left ${
+                  className={`py-3 px-6 text-center ${
                     inStock ? "text-green-500" : "text-red-500"
                   }`}
                 >

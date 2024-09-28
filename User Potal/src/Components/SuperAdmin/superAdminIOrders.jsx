@@ -16,7 +16,7 @@ const medicines = [
   { id: 12, name: "Azithromycin", stock: 0, price: 28 },
 ];
 
-const Inventory = () => {
+const  SuperAdminOrders= () => {
   const [step, setStep] = useState("list");
   const [selectedMedicine, setSelectedMedicine] = useState(null);
   const [orderDetails, setOrderDetails] = useState({
@@ -219,4 +219,4 @@ const Inventory = () => {
   );
 };
 
-export default Inventory;
+export default SuperAdminOrders;

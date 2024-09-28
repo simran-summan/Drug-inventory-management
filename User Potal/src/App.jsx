@@ -22,6 +22,12 @@ import Inventory from "./Components/Admin/Inventory";
 import RequestOrderPage from "./Components/Admin/RequestOrder";
 import AdminHome from "./Components/Admin/adminHome";
 import SuperAdminHome from "./Components/SuperAdmin/superAdmin";
+import SOS from "./Components/Admin/SOS";
+import SuperAdminOrders from "./Components/SuperAdmin/superAdminIOrders";
+import SuperAdminLayout from "./Layout/SuperAdminLayout";
+import SuperAdminInventory from "./Components/SuperAdmin/superAdminInventory";
+import SuperAdminRequestOrder from "./Components/SuperAdmin/superAdminRequestOrder";
+import SuperAdminSOS from "./Components/SuperAdmin/superAdminSOS";
 
 function App() {
   const router = createBrowserRouter(
@@ -46,10 +52,15 @@ function App() {
           <Route path="Orders" element={<OrderPage />} />
           <Route path="requests" element={<RequestOrderPage />} />
           <Route path="Inventory" element={<Inventory />} />
+          <Route path="SOS" element={<SOS />} />
         </Route>
         //SuperAdmin portal routes
-        <Route path="/superadmin-portal" element={<AdminLayout />}>
+        <Route path="/superadmin-portal" element={<SuperAdminLayout />}>
           <Route path="superadmin-home" element={<SuperAdminHome />} />
+          <Route path="Orders" element={<SuperAdminOrders />} />
+          <Route path="Inventory" element={<SuperAdminInventory />} />
+          <Route path="requests" element={<SuperAdminRequestOrder />} />
+          <Route path="SOS" element={<SuperAdminSOS />} />
         </Route>
       </>
     )

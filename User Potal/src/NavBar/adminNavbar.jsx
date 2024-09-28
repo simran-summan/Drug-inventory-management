@@ -13,7 +13,7 @@ const AdminNavbar = () => {
       <Link to="/admin-portal/inventory" className="hover:text-gray-300">
         Inventory
       </Link>
-      <Link to="/admin-portal/sos" className="hover:text-gray-300">
+      <Link to="/admin-portal/SOS" className="hover:text-gray-300">
         SOS
       </Link>
     </div>
