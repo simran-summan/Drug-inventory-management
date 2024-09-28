@@ -8,9 +8,18 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate login
+    console.log(email, password);
 
-    navigate("/user-portal/user-home"); // Redirect to Home Page after successful login
+    // Simulate login
+    if (email === "user@email.com" && password === "user") {
+      navigate("/user-portal/user-home");
+    } else if (email === "admin@email.com" && password === "admin") {
+      navigate("/admin-portal/admin-home");
+    } else if (email === "superadmin@email.com" && password === "superadmin") {
+      navigate("/superadmin-portal/superadmin-home");
+    } else {
+      alert("Invalid login credentials");
+    }
   };
 
   return (

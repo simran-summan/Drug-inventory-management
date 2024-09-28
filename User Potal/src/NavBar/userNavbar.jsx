@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-const Navbar = () => {
+const UserNavbar = () => {
   return (
     <div className=" h-14 text-xl w-full bg-black text-white flex space-x-96 justify-center items-center">
       <Link className="" to="/user-portal/Purchase-Medicine">Purchase Medicine</Link>
@@ -12,4 +12,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default UserNavbar;
