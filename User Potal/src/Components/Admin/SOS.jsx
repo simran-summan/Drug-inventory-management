@@ -96,11 +96,15 @@ const SOS = () => {
   );
 
   const renderPaymentGateway = () => (
-    <form onSubmit={handlePayment} className="max-w-md mx-auto mt-8 bg-white shadow-md rounded-lg overflow-hidden p-6">
+    <form
+      onSubmit={handlePayment}
+      className="max-w-md mx-auto mt-8 bg-white shadow-md rounded-lg overflow-hidden p-6"
+    >
       <h2 className="text-2xl font-bold mb-4">Payment Gateway</h2>
       <div className="bg-white p-4 rounded shadow mb-4">
         <h3 className="font-bold">Emergency Level: {emergencyLevel}</h3>
         <p>Medicine: {medicineName}</p>
+        <p>Manufacturer: HealthPlus</p>
         <p>Location: {location}</p>
         <p>Estimated Time: {estimatedTime}</p>
         <p>Price per unit: ₹100</p>
@@ -128,13 +132,13 @@ const SOS = () => {
           name="upiId"
           value={orderDetails.upiId}
           onChange={handleOrderDetailsChange}
-          className="w-full p-2 border rounded"
+          className="w-full mb-3 p-2 border rounded"
           required
         />
       </div>
       <button
         type="submit"
-        className="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+        className="w-full bg-green-500 mb-2 text-white px-4 py-2 rounded hover:bg-green-600"
         disabled={loading}
       >
         {loading ? "Processing..." : "Pay Now"}
@@ -144,9 +148,13 @@ const SOS = () => {
 
   const renderConfirmation = () => (
     <div className="max-w-md mx-auto mt-8 bg-red-500 text-white shadow-md rounded-lg overflow-hidden p-6 text-center">
-      <h2 className="text-2xl font-bold mb-4">High Priority Delivery Confirmed!</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        High Priority Delivery Confirmed!
+      </h2>
       <p>Your order for {medicineName} has been placed successfully.</p>
-      <p className="font-bold text-lg">Your delivery will arrive in {estimatedTime}</p>
+      <p className="font-bold text-lg">
+        Your delivery will arrive in {estimatedTime}
+      </p>
       <button
         onClick={() => {
           setStep("form");
