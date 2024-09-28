@@ -93,7 +93,7 @@ const OrderList = ({ orders, onSelectOrder }) => {
             <th className="py-3 px-11 text-left">Action</th>
           </tr>
         </thead>
-        <tbody className="text-gray-600 text-sm font-light">
+        <tbody className="text-gray-600 text-sm font-normal">
           {orders.map((order) => {
             const inStock = stockData[order.medicine] >= order.quantity;
             return (
