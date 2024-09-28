@@ -81,8 +81,8 @@ const OrderList = ({ orders, onSelectOrder }) => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4 underline">Order List</h1>
-      <table className="min-w-full bg-white">
+      <h1 className="text-2xl font-bold mb-4 ml-44 underline">Order List</h1>
+      <table className="min-w-[70%] ml-44 bg-white">
         <thead>
           <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
             <th className="py-3 px-6 text-center">Consumer</th>
@@ -93,7 +93,7 @@ const OrderList = ({ orders, onSelectOrder }) => {
             <th className="py-3 px-11 text-left">Action</th>
           </tr>
         </thead>
-        <tbody className="text-gray-600 text-sm font-light">
+        <tbody className="text-gray-600 text-sm font-normal">
           {orders.map((order) => {
             const inStock = stockData[order.medicine] >= order.quantity;
             return (

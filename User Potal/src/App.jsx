@@ -57,8 +57,9 @@ function App() {
         //SuperAdmin portal routes
         <Route path="/superadmin-portal" element={<SuperAdminLayout />}>
           <Route path="superadmin-home" element={<SuperAdminHome />} />
-          <Route path="Orders" element={<SuperAdminOrders />} />
           <Route path="Inventory" element={<SuperAdminInventory />} />
+          <Route path="Orders" element={<SuperAdminOrders />} />
+          <Route path="produce" element={<SuperAdminRequestOrder />} />
         </Route>
       </>
     )

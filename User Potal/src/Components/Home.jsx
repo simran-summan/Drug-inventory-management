@@ -10,14 +10,14 @@ function Home() {
           <div>
             <Link
               to="/login"
-              className="text-white border-2 border-white hover:bg-gray-700 hover:text-white px-6 py-2 rounded-lg transition duration-300 font-semibold"
+              className="bg-blue-600 text-white hover:bg-blue-500 hover:text-white px-6 py-2 rounded-lg transition duration-300 font-semibold my-1 text-[17px]"
             >
               Login
             </Link>
           </div>
         </div>
       </nav>
-      <div className="flex items-center justify-center h-screen bg-gradient-to-b from-gray-500 to-gray-800">
+      <div className="flex items-center justify-center h-[41.6rem] bg-gradient-to-b from-gray-500 to-gray-800">
         <h1 className="text-6xl font-extrabold text-white drop-shadow-lg">
           Welcome to PharmaScout!
         </h1>

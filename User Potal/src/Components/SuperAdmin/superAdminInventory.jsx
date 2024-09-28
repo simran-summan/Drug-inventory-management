@@ -19,38 +19,23 @@ const medicines = [
 const SuperAdminInventory = () => {
   const [step, setStep] = useState("list");
   const [selectedMedicine, setSelectedMedicine] = useState(null);
-  const [orderDetails, setOrderDetails] = useState({
-    quantity: 1,
-    upiId: "",
-    address: "",
-  });
-  const [loading, setLoading] = useState(false);
   const [orderedMedicines, setOrderedMedicines] = useState([]);
   const [filter, setFilter] = useState("all");
+  const [productionMessage, setProductionMessage] = useState("");
 
   const handleSelectMedicine = (medicine) => {
     setSelectedMedicine(medicine);
-    setStep("payment");
   };
 
-  const handleOrderDetailsChange = (e) => {
-    setOrderDetails({ ...orderDetails, [e.target.name]: e.target.value });
-  };
+  const handleAddRequest = (medicine) => {
+    if (medicine.stock > 5) {
+      // Disable adding request for stock > 5
+      return;
+    }
 
-  const handlePayment = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    // Simulating payment process
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setLoading(false);
-    // Add the selected medicine ID to orderedMedicines
-    setOrderedMedicines([...orderedMedicines, selectedMedicine.id]);
-    setStep("confirmation");
+    setOrderedMedicines([...orderedMedicines, medicine.id]);
+    setProductionMessage(`Production requested for ${medicine.name} successfully!`);
   };
-
-  const totalCost = selectedMedicine
-    ? selectedMedicine.price * orderDetails.quantity
-    : 0;
 
   const renderMedicineList = () => {
     let filteredMedicines = medicines;
@@ -64,10 +49,8 @@ const SuperAdminInventory = () => {
     }
 
     return (
-      <div className=" w-11/12">
-        <h2 className="text-2xl font-bold underline mb-4">
-          Medicines in Inventory
-        </h2>
+      <div className="w-11/12">
+        <h2 className="text-2xl font-bold underline mb-4">Medicines in Inventory</h2>
         <div className="space-x-4 mb-4">
           <label>
             <input
@@ -100,6 +83,7 @@ const SuperAdminInventory = () => {
             No Stock
           </label>
         </div>
+        {productionMessage && <p className="text-green-500 font-bold">{productionMessage}</p>}
         <table className="min-w-full table-fixed border-collapse shadow-md rounded-lg overflow-hidden">
           <thead>
             <tr className="bg-gray-200">
@@ -115,17 +99,21 @@ const SuperAdminInventory = () => {
                 <td className="px-6 text-center py-4">{medicine.name}</td>
                 <td className="px-6 text-center py-4">{medicine.stock}</td>
                 <td className="px-6 text-center py-4">{medicine.price}</td>
-                <td className="px-6  py-4 text-center">
+                <td className="px-6 py-4 text-center">
                   {orderedMedicines.includes(medicine.id) ? (
-                    <span className="text-green-500 font-bold">
-                      Order Placed
-                    </span>
+                    <span className="text-green-500 font-bold">Request sent</span>
                   ) : (
                     <button
-                      onClick={() => handleSelectMedicine(medicine)}
-                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                      onClick={() => {
+                        handleSelectMedicine(medicine);
+                        handleAddRequest(medicine);
+                      }}
+                      className={`bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 ${
+                        medicine.stock > 5 ? "opacity-50 cursor-not-allowed" : ""
+                      }`}
+                      disabled={medicine.stock > 5}
                     >
-                      Add to Request
+                      Produce...
                     </button>
                   )}
                 </td>
@@ -137,84 +125,9 @@ const SuperAdminInventory = () => {
     );
   };
 
-  const renderPaymentGateway = () => (
-    <form onSubmit={handlePayment} className="space-y-4">
-      <h2 className="text-2xl font-bold">Payment Gateway</h2>
-      <div className="bg-white p-4 rounded shadow">
-        <h3 className="font-bold">{selectedMedicine.name}</h3>
-        <p>Price: ₹{selectedMedicine.price}</p>
-        <div className="mt-2">
-          <label className="block mb-1">Quantity:</label>
-          <input
-            type="number"
-            name="quantity"
-            value={orderDetails.quantity}
-            onChange={handleOrderDetailsChange}
-            min="1"
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-      </div>
-      <div>
-        <label className="block mb-1">Total Cost:</label>
-        <p className="font-bold">₹{totalCost}</p>
-      </div>
-      <div>
-        <label className="block mb-1">UPI ID:</label>
-        <input
-          type="text"
-          name="upiId"
-          value={orderDetails.upiId}
-          onChange={handleOrderDetailsChange}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
-      <div>
-        <label className="block mb-1">Delivery Address:</label>
-        <textarea
-          name="address"
-          value={orderDetails.address}
-          onChange={handleOrderDetailsChange}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
-      <button
-        type="submit"
-        className="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-        disabled={loading}
-      >
-        {loading ? "Processing..." : "Pay Now"}
-      </button>
-    </form>
-  );
-
-  const renderConfirmation = () => (
-    <div className="space-y-4 text-center">
-      <h2 className="text-2xl font-bold">Payment Done!</h2>
-      <p>
-        Your order for {selectedMedicine.name} has been placed successfully.
-      </p>
-      <button
-        onClick={() => {
-          setStep("list");
-          setSelectedMedicine(null);
-          setOrderDetails({ quantity: 1, upiId: "", address: "" });
-        }}
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-      >
-        Back to Medicine List
-      </button>
-    </div>
-  );
-
   return (
-    <div className="container mx-auto p-4  max-w-2xl">
+    <div className="container mx-auto p-4 max-w-2xl">
       {step === "list" && renderMedicineList()}
-      {step === "payment" && selectedMedicine && renderPaymentGateway()}
-      {step === "confirmation" && renderConfirmation()}
     </div>
   );
 };
