@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-// Simulated data for available medicines (you can extend this with your actual data)
+// Simulated data for available medicines (including manufacturer)
 const availableMedicines = [
-  { id: 1, name: "Aspirin", price: 10 },
-  { id: 2, name: "Ibuprofen", price: 15 },
-  { id: 3, name: "Amoxicillin", price: 20 },
-  { id: 4, name: "Metformin", price: 12 },
-  { id: 5, name: "Paracetamol", price: 8 },
+  { id: 1, name: "Aspirin", price: 10, manufacturer: "PharmaCorp" },
+  { id: 2, name: "Ibuprofen", price: 15, manufacturer: "MediCo" },
+  { id: 3, name: "Amoxicillin", price: 20, manufacturer: "HealthPlus" },
+  { id: 4, name: "Metformin", price: 12, manufacturer: "PharmaTech" },
+  { id: 5, name: "Paracetamol", price: 8, manufacturer: "CureMed" },
 ];
 
 const RequestOrderPage = () => {
@@ -55,8 +55,11 @@ const RequestOrderPage = () => {
     : 0;
 
   const renderMedicineInput = () => (
-    <form onSubmit={handleMedicineSubmit} className="space-y-4">
-      <h2 className="text-2xl font-bold underline">Request Medicine</h2>
+    <form
+      onSubmit={handleMedicineSubmit}
+      className="space-y-4 max-w-md mx-auto mt-10 bg-white shadow-md rounded-lg overflow-hidden p-6 "
+    >
+      <h2 className="text-2xl underline font-bold">Request Medicine</h2>
       <div>
         <label className="block mb-1">Medicine Name:</label>
         <input
@@ -82,6 +85,8 @@ const RequestOrderPage = () => {
       <h2 className="text-2xl font-bold">Payment Gateway</h2>
       <div className="bg-white p-4 rounded shadow">
         <h3 className="font-bold">{selectedMedicine.name}</h3>
+        <p>Manufacturer: {selectedMedicine.manufacturer}</p>{" "}
+        {/* Display manufacturer */}
         <p>Price: ₹{selectedMedicine.price}</p>
         <div className="mt-2">
           <label className="block mb-1">Quantity:</label>
