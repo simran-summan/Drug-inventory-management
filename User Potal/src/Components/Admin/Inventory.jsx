@@ -64,8 +64,10 @@ const Inventory = () => {
     }
 
     return (
-      <div className="space-y-8">
-        <h2 className="text-2xl font-bold underline">Medicines in inventory</h2>
+      <div className=" w-11/12">
+        <h2 className="text-2xl font-bold underline mb-4">
+          Medicines in Inventory
+        </h2>
         <div className="space-x-4 mb-4">
           <label>
             <input
@@ -98,32 +100,43 @@ const Inventory = () => {
             No Stock
           </label>
         </div>
-        <ul className="space-y-4">
-          {filteredMedicines.map((medicine) => (
-            <li
-              key={medicine.id}
-              className="flex justify-between items-center bg-white p-6 rounded shadow w-full"
-              style={{ minWidth: "600px" }}
-            >
-              <span>
-                {medicine.name} - Stock: {medicine.stock}
-              </span>
-              {orderedMedicines.includes(medicine.id) ? (
-                <span className="text-green-500 font-bold">Order Placed</span>
-              ) : (
-                <button
-                  onClick={() => handleSelectMedicine(medicine)}
-                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                >
-                  Add to Request
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
+        <table className="min-w-full table-fixed border-collapse shadow-md rounded-lg overflow-hidden">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="px-6 py-4 text-center">Medicine Name</th>
+              <th className="px-6 py-4 text-center">Stock</th>
+              <th className="px-6 py-4 text-center">Price (₹)</th>
+              <th className="px-6 py-4 text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredMedicines.map((medicine) => (
+              <tr key={medicine.id} className="bg-white border-b">
+                <td className="px-6 text-center py-4">{medicine.name}</td>
+                <td className="px-6 text-center py-4">{medicine.stock}</td>
+                <td className="px-6 text-center py-4">{medicine.price}</td>
+                <td className="px-6  py-4 text-center">
+                  {orderedMedicines.includes(medicine.id) ? (
+                    <span className="text-green-500 font-bold">
+                      Order Placed
+                    </span>
+                  ) : (
+                    <button
+                      onClick={() => handleSelectMedicine(medicine)}
+                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                    >
+                      Add to Request
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   };
+
   const renderPaymentGateway = () => (
     <form onSubmit={handlePayment} className="space-y-4">
       <h2 className="text-2xl font-bold">Payment Gateway</h2>
@@ -198,7 +211,7 @@ const Inventory = () => {
   );
 
   return (
-    <div className="container mx-auto p-4 max-w-md">
+    <div className="container mx-auto p-4  max-w-2xl">
       {step === "list" && renderMedicineList()}
       {step === "payment" && selectedMedicine && renderPaymentGateway()}
       {step === "confirmation" && renderConfirmation()}
