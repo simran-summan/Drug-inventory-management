@@ -19,7 +19,7 @@ const AdminNavbar = () => {
       </Link>
       </div>
       <div className="flex justify-end m-1 pr-10">
-       <Link to="/login" className="text-white border-2 border-white hover:bg-gray-700 hover:text-white px-6 py-1 rounded-lg transition duration-300 font-semibold my-1 text-[17px]">
+       <Link to="/login" className=" bg-blue-500 text-white hover:bg-blue-300 hover:text-white px-6 py-1 rounded-lg transition duration-300 font-semibold my-1 text-[17px]">
       Logout 
       </Link> 
       </div>
