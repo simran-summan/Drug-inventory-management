@@ -56,7 +56,7 @@ const SuperAdminRequestOrder = () => {
 
   const renderMedicineInput = () => (
     <form onSubmit={handleMedicineSubmit} className="space-y-4 max-w-md mx-auto mt-8 bg-white shadow-md rounded-lg overflow-hidden p-6">
-      <h2 className="text-2xl font-bold underline">Request Medicine</h2>
+      <h2 className="text-2xl font-bold underline">Produce Medicine</h2>
       <div>
         <label className="block mb-1">Medicine Name:</label>
         <input
