@@ -59,8 +59,6 @@ function App() {
           <Route path="superadmin-home" element={<SuperAdminHome />} />
           <Route path="Orders" element={<SuperAdminOrders />} />
           <Route path="Inventory" element={<SuperAdminInventory />} />
-          <Route path="requests" element={<SuperAdminRequestOrder />} />
-          <Route path="SOS" element={<SuperAdminSOS />} />
         </Route>
       </>
     )

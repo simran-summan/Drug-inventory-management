@@ -14,14 +14,8 @@ const AdminNavbar = () => {
       <Link to="/admin-portal/orders" className="hover:text-gray-300">
         Order
       </Link>
-      <Link to="/admin-portal/requests" className="hover:text-gray-300">
-        Request
-      </Link>
       <Link to="/admin-portal/inventory" className="hover:text-gray-300">
         Inventory
-      </Link>
-      <Link to="/admin-portal/SOS" className="hover:text-gray-300">
-        SOS
       </Link>
       </div>
       <div className="flex justify-end m-1 pr-10">

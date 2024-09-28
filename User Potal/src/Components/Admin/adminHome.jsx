@@ -20,7 +20,7 @@ const AdminHome = () => {
   return (
     <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-b from-gray-500 to-gray-800">
       <h1 className="text-white text-7xl font-extrabold">
-        Welcome to Dawa-daaru Admin Portal
+      Welcome to PharmaScout!
       </h1>
       {showNotification && (
         <div className="absolute right-4 top-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg transition-transform transform translate-x-4">
